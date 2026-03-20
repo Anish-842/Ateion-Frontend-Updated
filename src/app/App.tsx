@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Homepage from "../imports/Homepage";
 import GCOPage from "../imports/GCOPage";
+import ContactPage from "../imports/ContactPage";
+
 
 function ScaledHomepage() {
   const [scale, setScale] = useState(1);
@@ -53,6 +55,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<ScaledHomepage />} />
         <Route path="/gco" element={<GCOPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </BrowserRouter>
   );
