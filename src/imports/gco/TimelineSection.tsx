@@ -137,7 +137,7 @@ export default function TimelineSection() {
               height: `${(timelineSteps.length - 1) * 200}px`,
               scaleY: lineHeight / 100,
               transformOrigin: 'top',
-              backgroundColor: '#ff5a5a'
+              backgroundColor: '#3b82f6'
             }}
           />
 
