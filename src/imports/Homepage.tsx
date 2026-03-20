@@ -893,7 +893,8 @@ function EcosystemBubble({
   titleSize = "18px",
   titleClass = "font-['Outfit:Bold',sans-serif]",
   gradientId,
-  descSize = "12px"
+  descSize = "12px",
+  staticTextColor
 }: { 
   ml: string, mt: string, size: string, 
   defaultColor?: string, 
@@ -904,7 +905,8 @@ function EcosystemBubble({
   titleSize?: string,
   titleClass?: string,
   gradientId?: string,
-  descSize?: string
+  descSize?: string,
+  staticTextColor?: string
 }) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -948,7 +950,7 @@ function EcosystemBubble({
             cx="50" cy="50" r="49.5" 
             animate={{ 
               fill: isHovered ? (gradientId ? `url(#${gradientId})` : "rgba(255,255,255,0.1)") : defaultColor,
-              stroke: isHovered ? hoverColor : "rgba(0,0,0,0.15)",
+              stroke: isHovered ? hoverColor : (defaultColor !== "transparent" ? defaultColor : "rgba(0,0,0,0.15)"),
               strokeWidth: isHovered ? 2.5 : 0.8,
               scale: isHovered ? 1.08 : 1,
             }}
@@ -962,7 +964,7 @@ function EcosystemBubble({
           className={`transition-all duration-500 not-italic ${titleClass} leading-tight`}
           style={{ 
             fontSize: titleSize,
-            color: isHovered && isDark ? "white" : "black",
+            color: isHovered && isDark ? "white" : (staticTextColor || "black"),
             textShadow: isHovered && isDark ? "0 0 8px rgba(255,255,255,0.4)" : "none"
           }}
           animate={{
@@ -978,7 +980,7 @@ function EcosystemBubble({
           style={{ 
             fontSize: descSize,
             maxWidth: "80%",
-            color: isHovered && isDark ? "rgba(255,255,255,0.9)" : "rgba(0,0,0,0.7)",
+            color: isHovered && isDark ? "rgba(255,255,255,0.9)" : (staticTextColor || "rgba(0,0,0,0.7)"),
           }}
           animate={{
             opacity: isHovered ? 1 : 0.6,
@@ -1045,6 +1047,8 @@ function EcosystemCluster() {
       {/* Bubbles moved slightly to accommodate the left content */}
       <EcosystemBubble 
         ml="274.69px" mt="137.18px" size="272.92px" 
+        defaultColor="#1E1632"
+        staticTextColor="white"
         hoverColor="#1E1632" isDark={true} gradientId="ateionGrad"
         title="Ateion" 
         description="Ateion is building the infrastructure for a capability-based future by integrating early AI workshops with standard-setting competitions."
@@ -1054,6 +1058,8 @@ function EcosystemCluster() {
       
       <EcosystemBubble 
         ml="0" mt="0" size="274.68px" 
+        defaultColor="#FF595B"
+        staticTextColor="black"
         hoverColor="#FF595B" isDark={true} gradientId="gcoGrad"
         title="GCO" 
         description="From early AI workshops to the Global Capability Olympiad, and emerging initiatives like KRONOS and VOUCH."
