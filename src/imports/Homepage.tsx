@@ -318,10 +318,12 @@ function Logo() {
 // Frame8 and Frame7 merged into Frame9
 
 function Frame9() {
+  const navigate = useNavigate();
   return (
-    <motion.div 
+    <motion.div
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
+      onClick={() => navigate('/')}
       className="bg-[rgba(235,235,235,0.8)] flex h-[34px] items-center justify-center px-[22px] relative rounded-full shrink-0 group cursor-pointer hover:bg-[rgba(215,215,215,0.95)] transition-colors"
     >
       <p className="font-bold leading-none relative shrink-0 text-[#292929] text-[13px] whitespace-nowrap pt-[1px]" style={{ fontFamily: "'Manrope', sans-serif" }}>About Us</p>
@@ -330,10 +332,12 @@ function Frame9() {
 }
 
 function Frame3() {
+  const navigate = useNavigate();
   return (
-    <motion.div 
+    <motion.div
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
+      onClick={() => navigate('/')}
       className="bg-[rgba(235,235,235,0.8)] flex gap-[6px] h-[34px] items-center justify-center px-[20px] relative rounded-full shrink-0 group cursor-pointer hover:bg-[rgba(215,215,215,0.95)] transition-colors"
     >
       <p className="font-bold leading-none relative shrink-0 text-[#292929] text-[13px] whitespace-nowrap pt-[1px]" style={{ fontFamily: "'Manrope', sans-serif" }}>Workshops</p>

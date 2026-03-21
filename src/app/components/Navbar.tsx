@@ -16,7 +16,15 @@ function LogoContainer() {
   );
 }
 
-function NavButton({ children, onClick, className = "" }: { children: React.ReactNode; onClick?: () => void; className?: string }) {
+function NavButton({ 
+  children, 
+  onClick, 
+  className = "" 
+}: { 
+  children: React.ReactNode; 
+  onClick?: () => void; 
+  className?: string 
+}) {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
@@ -49,18 +57,20 @@ function NavButtonText({ text, hasDropdown = false }: { text: string; hasDropdow
 }
 
 function NavLinks() {
+  const navigate = useNavigate();
+  
   return (
     <div className="flex gap-[12px] md:gap-[16px] items-center justify-center">
-      <NavButton>
+      <NavButton onClick={() => navigate('/')}>
         <NavButtonText text="About Us" />
       </NavButton>
-      <NavButton>
+      <NavButton onClick={() => navigate('/')}>
         <NavButtonText text="Workshops" hasDropdown />
       </NavButton>
-      <NavButton>
+      <NavButton onClick={() => navigate('/gco')}>
         <NavButtonText text="Global Olympiad" />
       </NavButton>
-      <NavButton>
+      <NavButton onClick={() => navigate('/')}>
         <NavButtonText text="Resources" />
       </NavButton>
     </div>
