@@ -1,0 +1,98 @@
+/* =========================================================
+   Ateion Design Tokens — imported once in main.tsx / index.css
+   ========================================================= */
+
+:root {
+  /* --- Colours --- */
+  --color-bg:           #f7f3eb;       /* warm off-white: page background */
+  --color-surface:      #fff;          /* card/form surface */
+  --color-dark:         #1e1632;       /* deep navy: footer, dark CTAs */
+  --color-accent:       #fb4444;       /* red: primary CTA */
+  --color-accent-hover: #ff5a5a;
+  --color-text:         #111111;       /* headings */
+  --color-text-muted:   rgba(0,0,0,0.6);
+  --color-border:       rgba(0,0,0,0.1);
+
+  /* --- Typography scale --- */
+  --font-heading: 'OV Soge', 'Manrope', sans-serif;
+  --font-body:    'Manrope', 'Inter', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-md:   18px;
+  --text-lg:   24px;
+  --text-xl:   32px;
+  --text-2xl:  48px;
+  --text-3xl:  64px;
+  --text-4xl:  80px;
+
+  /* --- Spacing --- */
+  --space-xs:  8px;
+  --space-sm:  16px;
+  --space-md:  24px;
+  --space-lg:  40px;
+  --space-xl:  64px;
+  --space-2xl: 96px;
+
+  /* --- Radius --- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 100px;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 24px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.14);
+
+  /* --- Transitions --- */
+  --ease-fast: 0.15s ease;
+  --ease-base: 0.25s cubic-bezier(0.4,0,0.2,1);
+  --ease-slow: 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* =========================================================
+   Typographic reset – applied everywhere for consistency
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  margin: 0;
+}
+
+p, span, li, a {
+  font-family: var(--font-body);
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+}

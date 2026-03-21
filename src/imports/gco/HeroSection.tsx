@@ -1,28 +1,44 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router";
+import { ImageTrail } from "@/app/components/ui/image-trail";
+import Navbar from "../../app/components/Navbar";
 import "../../styles/gco/HeroSection.css";
-import logoAteion from "../../assets/gco/Ateion-logo.png";
 import logoEducation from "../../assets/gco/logo-education.png";
 import logoPolicy from "../../assets/gco/logo-education-policy2020.jpg";
 
 function HeroSection() {
-  return (
-    <section className="hero">
-      <div className="overlay">
-        <div className="navbar-box">
-          <div className="navbar">
-            <div className="logo">
-              <img src={logoAteion} alt="GCO Logo" />
-            </div>
-            <ul className="nav-links">
-              <li><a href="#about" className="nav-item">About us</a></li>
-              <li><a href="#workshops" className="nav-item">Workshops ▼</a></li>
-              <li><a href="#gco" className="nav-highlight">GCO</a></li>
-              <li><a href="#learn" className="nav-item">Learn</a></li>
-            </ul>
-            <button className="btn-primary">Get Connected</button>
-          </div>
-        </div>
+  const navigate = useNavigate();
+  const ref = useRef<HTMLDivElement>(null);
 
+  const images = [
+    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=300&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=300&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1427504746696-ea5abd7dfe8d?w=300&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=300&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=300&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=300&h=300&fit=crop",
+  ];
+
+  return (
+    <section className="hero" ref={ref}>
+      <div className="fixed top-0 left-0 right-0 z-50">
+        <Navbar />
+      </div>
+      <ImageTrail containerRef={ref}>
+        {images.map((url, index) => (
+          <div
+            key={index}
+            className="flex relative overflow-hidden w-32 h-32 rounded-lg"
+          >
+            <img
+              src={url}
+              alt={`Trail image ${index + 1}`}
+              className="object-cover absolute inset-0 hover:scale-110 transition-transform"
+            />
+          </div>
+        ))}
+      </ImageTrail>
+      <div className="overlay">
         <div className="hero-content">
           <h1 className="hero-title">
             Global Capability Olympiad
@@ -34,7 +50,7 @@ function HeroSection() {
           </p>
 
           <div className="hero-buttons">
-            <button className="btn-secondary">Contact us</button>
+            <button className="btn-secondary" onClick={() => navigate('/contact')}>Contact us</button>
             <button className="btn-black">Explore more</button>
           </div>
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, animate, useInView, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from 'lucide-react';
-import svgPaths from "./svg-1lr6hhp4h8";
+import svgPaths from "./svg-paths";
 import logo from "../assets/logo.png";
 import imgRectangle9 from "../assets/e54e08242e5e8cea29c382ba6bc82218d425f28e.png";
 import imgImage9 from "../assets/3aab4451afd875f66a83eb26e0ca2d6f58abce98.png";
@@ -215,7 +215,7 @@ function Frame65() {
 
 function HeroSliderImages() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[16px] items-start left-0 top-0 w-[1280px]">
+    <div className="content-stretch flex flex-col gap-[16px] items-start relative w-full">
       <Frame67 />
       <Frame66 />
       <Frame65 />
@@ -422,10 +422,12 @@ function TopNavBar() {
 
 function HeroSliderHeader() {
   return (
-    <div className="h-[665px] relative shrink-0 w-full">
-      <div className="content-stretch flex flex-col items-start relative size-full">
-        <HeroSliderImages />
+    <div className="h-[665px] relative shrink-0 w-full overflow-hidden">
+      <div className="absolute inset-0 z-50">
         <TopNavBar />
+      </div>
+      <div className="content-stretch flex flex-col gap-[16px] items-start left-0 top-0 w-full">
+        <HeroSliderImages />
       </div>
     </div>
   );
@@ -511,7 +513,7 @@ function GlobalAlignedTitle() {
 
 function GlobalAlignedContent() {
   return (
-    <div className="content-stretch flex gap-[16px] items-center relative shrink-0">
+    <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
       <GlobalAlignedTitle />
       <div className="h-[312px] relative rounded-[9px] shrink-0 w-[221px]" data-name="image 7">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[9px] size-full" src={imgImage7} />
@@ -522,7 +524,7 @@ function GlobalAlignedContent() {
 
 function GlobalAlignedBlackCard() {
   return (
-    <div className="bg-[#202020] content-stretch flex flex-col h-[377px] items-start pb-[32px] pt-[33px] px-[31px] relative rounded-[19px] shrink-0 w-[561px]">
+    <div className="bg-[#202020] content-stretch flex flex-col h-[377px] items-start pb-[32px] pt-[33px] px-[31px] relative rounded-[19px] shrink-0 flex-1">
       <GlobalAlignedContent />
     </div>
   );
@@ -530,8 +532,8 @@ function GlobalAlignedBlackCard() {
 
 function RedIntelligenceTitle() {
   return (
-    <div className="h-[132px] relative shrink-0 w-[235px]">
-      <p className="absolute leading-[normal] left-0 not-italic text-[24px] text-black top-0 w-[235px]" style={{ fontFamily: "'OV Soge', sans-serif" }}>Education is not broken. Its measurement system is :</p>
+    <div className="h-[132px] relative shrink-0 w-[249px]">
+      <p className="absolute leading-[normal] left-0 not-italic text-[24px] text-black top-0 w-[249px]" style={{ fontFamily: "'OV Soge', sans-serif" }}>Education is not broken. Its measurement system is :</p>
     </div>
   );
 }
@@ -547,7 +549,7 @@ function RedIntelligenceTop() {
 
 function RedIntelligenceContent() {
   return (
-    <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-[511px]">
+    <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
       <RedIntelligenceTop />
       <p className="font-['SF_Pro_Display:Medium',sans-serif] h-[87px] leading-[0] not-italic relative shrink-0 text-[0px] text-black w-full">
         <span className="leading-[33px] text-[20px]">{`Ateion replaces memory-based validation with `}</span>
@@ -559,7 +561,7 @@ function RedIntelligenceContent() {
 
 function RedIntelligenceCard() {
   return (
-    <div className="bg-[#ff6b6b] content-stretch flex flex-col h-[377px] items-start pb-[9px] pl-[51px] pr-[25px] pt-[33px] relative rounded-[19px] shrink-0 w-[587px]">
+    <div className="bg-[#ff6b6b] content-stretch flex flex-col h-[377px] items-start pb-[9px] pl-[51px] pr-[25px] pt-[33px] relative rounded-[19px] shrink-0 flex-1">
       <RedIntelligenceContent />
     </div>
   );
