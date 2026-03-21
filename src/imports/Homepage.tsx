@@ -292,13 +292,12 @@ function SliderImageThree() {
 
 function LogoContainer() {
   return (
-    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
-      <SliderImageThree />
-      <div className="col-1 h-[16.31px] ml-[4.03px] mt-[13.85px] relative row-1 w-[17.233px]">
-        <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17.2333 16.3101">
-          <path d={svgPaths.p3a430600} fill="var(--fill-0, #D4CFC5)" id="Vector 464" />
-        </svg>
-      </div>
+    <div className="flex items-center justify-center relative shrink-0">
+      <img
+        src={logo}
+        alt="Ateion Logo"
+        className="h-[60px] object-contain w-auto"
+      />
     </div>
   );
 }
