@@ -405,15 +405,17 @@ function NavActions() {
 
 function TopNavBar() {
   return (
-    <div className="content-stretch flex items-center justify-between px-[24px] py-[20px] relative shrink-0 w-full max-w-[1280px] mx-auto z-50">
-      <div className="flex flex-1 items-center justify-start">
-        <LogoContainer />
-      </div>
-      <div className="flex-[2] flex items-center justify-center">
-        <NavLinks />
-      </div>
-      <div className="flex flex-1 items-center justify-end">
-        <NavActions />
+    <div className="fixed top-0 left-0 right-0 z-50">
+      <div className="content-stretch flex items-center justify-between px-[24px] py-[20px] relative shrink-0 w-full max-w-[1280px] mx-auto">
+        <div className="flex flex-1 items-center justify-start">
+          <LogoContainer />
+        </div>
+        <div className="flex-[2] flex items-center justify-center">
+          <NavLinks />
+        </div>
+        <div className="flex flex-1 items-center justify-end">
+          <NavActions />
+        </div>
       </div>
     </div>
   );
@@ -421,10 +423,8 @@ function TopNavBar() {
 
 function HeroSliderHeader() {
   return (
-    <div className="h-[665px] relative shrink-0 w-full overflow-hidden">
-      <div className="absolute inset-0 z-50">
-        <TopNavBar />
-      </div>
+    <div className="h-[665px] relative shrink-0 w-full overflow-hidden pt-[80px]">
+      <TopNavBar />
       <div className="content-stretch flex flex-col gap-[16px] items-start left-0 top-0 w-full">
         <HeroSliderImages />
       </div>
