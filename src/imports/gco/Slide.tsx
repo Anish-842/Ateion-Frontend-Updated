@@ -2,7 +2,7 @@ import '../../styles/gco/Slide.css';
 
 export default function Slide() {
   return (
-    <div className="slide">
+    <div className="slide dark-section">
       <div className="top-section">
         <h1 className="title">
           Education Systems Are<br />

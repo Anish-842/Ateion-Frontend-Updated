@@ -579,7 +579,7 @@ function GlobalPresenceMapPadding() {
 
 function GlobalPresenceMapBg() {
   return (
-    <div className="bg-black h-auto relative shrink-0 w-full py-[80px]">
+    <div className="bg-black h-auto relative shrink-0 w-full py-[80px] dark-section">
       <div className="content-stretch flex flex-col items-center relative size-full">
         <GlobalPresenceMapPadding />
       </div>

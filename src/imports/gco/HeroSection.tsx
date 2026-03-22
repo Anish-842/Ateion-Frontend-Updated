@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router";
-import { ImageTrail } from "@/app/components/ui/image-trail";
+import { ImageTrail } from "../../app/components/ui/image-trail";
+import Navbar from "../../app/components/Navbar";
 import "../../styles/gco/HeroSection.css";
 import logoEducation from "../../assets/gco/logo-education.png";
 import logoPolicy from "../../assets/gco/logo-education-policy2020.jpg";
@@ -12,7 +13,7 @@ function HeroSection() {
   const images = [
     "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=300&h=300&fit=crop",
     "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=300&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1427504746696-ea5abd7dfe8d?w=300&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=300&h=300&fit=crop",
     "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=300&h=300&fit=crop",
     "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=300&h=300&fit=crop",
     "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=300&h=300&fit=crop",
@@ -36,7 +37,7 @@ function HeroSection() {
       </ImageTrail>
       <div className="overlay">
         <div className="hero-content">
-          <h1 className="hero-title">
+          <h1 className="hero-title mt-[80px] lg:mt-[100px]">
             Global Capability Olympiad
           </h1>
           <p className="hero-subtitle">
