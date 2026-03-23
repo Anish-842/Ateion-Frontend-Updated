@@ -329,7 +329,7 @@ function ExploreButton() {
       whileTap={{ scale: 0.95 }}
       className="bg-[#fb4444] flex items-center justify-center h-[44px] sm:h-[48px] md:h-[52px] px-6 sm:px-8 md:px-10 relative rounded-[154px] min-w-[140px] sm:min-w-[160px] md:min-w-[190px] shrink-0 cursor-pointer shadow-lg shadow-[#fb444433] hover:bg-[#ff5a5a] transition-colors"
     >
-       <p className="font-bold leading-none text-[12px] sm:text-[13px] md:text-[14px] text-white whitespace-nowrap" style={{ fontFamily: "'Manrope', sans-serif" }}>Explore more</p>
+      <p className="font-bold leading-none text-[12px] sm:text-[13px] md:text-[14px] text-white whitespace-nowrap" style={{ fontFamily: "'Manrope', sans-serif" }}>Explore more</p>
     </motion.div>
   );
 }
@@ -356,7 +356,7 @@ function PurpleCapabilityCardText() {
   return (
     <div className="flex flex-col gap-[24px] sm:gap-[32px] items-start relative shrink-0 w-full max-w-[249px]">
       <p className="font-['Inter',sans-serif] leading-[1.4] text-[16px] sm:text-[18px] text-black">
-        Because <strong>marks</strong> measure memory.<br/>
+        Because <strong>marks</strong> measure memory.<br />
         <strong className="font-['IBM Plex Sans',sans-serif] italic text-[18px] sm:text-[20px]">Capability</strong> <strong className="font-['IBM Plex Sans',sans-serif] italic">measures the future.</strong>
       </p>
       <p className="font-['Inter',sans-serif] leading-[1.6] text-[13px] sm:text-[14px] text-black w-full">
@@ -732,7 +732,7 @@ function GcoFeatureTagsRow() {
   );
 }
 
-function GcoFeatureTitleContainer() {
+function GcoFeatureBadge({ activeData }: { activeData: { id: string, number: string, title: string, description: string, hasTags: boolean } }) {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
       <p className="leading-[1.19] not-italic relative shrink-0 text-[48px] text-black tracking-[0.4px] w-full max-w-[500px]" style={{ fontFamily: "'OV Soge', sans-serif" }}>Global Capability Olympiad (GCO)</p>
@@ -746,7 +746,7 @@ function GcoFeatureTitleContainer() {
 function GcoFeatureNumber() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
-      <p className="font-['DM Sans',sans-serif] font-light leading-[2] relative shrink-0 text-[24px] text-black w-full opacity-60 mb-2" style={{ fontVariationSettings: "'opsz' 14" }}>
+      <p className="font-['DM_Sans:Light',sans-serif] font-light leading-[2] relative shrink-0 text-[24px] text-black w-full opacity-60 mb-2" style={{ fontVariationSettings: "'opsz' 14" }}>
         (01)
       </p>
       <GcoFeatureTitleContainer />
@@ -763,7 +763,7 @@ function GcoFeatureBadge() {
         <div className="flex items-center justify-center">
           <div className="flex items-center justify-center h-[26px] w-[26px] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M7 17L17 7M7 7h10v10"/>
+              <path d="M7 17L17 7M7 7h10v10" />
             </svg>
           </div>
         </div>
@@ -774,41 +774,44 @@ function GcoFeatureBadge() {
 
 // Label handled by parent flex-row for unified centering
 
-function EcosystemBubble({ 
-  ml, mt, size, 
-  defaultColor = "transparent", 
-  hoverColor, 
-  title, 
+function EcosystemBubble({
+  ml, mt, size,
+  defaultColor = "transparent",
+  hoverColor,
+  title,
   description,
   isDark = false,
   titleSize = "18px",
   titleClass = "font-['Outfit',sans-serif]",
   gradientId,
   descSize = "12px",
-  staticTextColor
-}: { 
-  ml: string, mt: string, size: string, 
-  defaultColor?: string, 
-  hoverColor: string, 
-  title: string, 
+  staticTextColor,
+  onClick
+}: {
+  ml: string, mt: string, size: string,
+  defaultColor?: string,
+  hoverColor: string,
+  title: string,
   description: string,
   isDark?: boolean,
   titleSize?: string,
   titleClass?: string,
   gradientId?: string,
   descSize?: string,
-  staticTextColor?: string
+  staticTextColor?: string,
+  onClick?: () => void
 }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div 
+    <div
       className="absolute flex items-center justify-center cursor-pointer pointer-events-auto"
       style={{ marginLeft: ml, marginTop: mt, width: size, height: size }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={onClick}
     >
-      <motion.div 
+      <motion.div
         className="absolute inset-0"
         animate={{
           y: isHovered ? 0 : [0, -6, 0],
@@ -825,7 +828,7 @@ function EcosystemBubble({
         <svg className="absolute block size-full overflow-visible" fill="none" preserveAspectRatio="none" viewBox="0 0 100 100">
           <AnimatePresence>
             {isHovered && (
-              <motion.circle 
+              <motion.circle
                 cx="50" cy="50" r="54"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 0.35, scale: 1.15 }}
@@ -837,9 +840,9 @@ function EcosystemBubble({
             )}
           </AnimatePresence>
 
-          <motion.circle 
-            cx="50" cy="50" r="49.5" 
-            animate={{ 
+          <motion.circle
+            cx="50" cy="50" r="49.5"
+            animate={{
               fill: isHovered ? (gradientId ? `url(#${gradientId})` : "rgba(255,255,255,0.1)") : defaultColor,
               stroke: isHovered ? hoverColor : (defaultColor !== "transparent" ? defaultColor : "rgba(0,0,0,0.15)"),
               strokeWidth: isHovered ? 2.5 : 0.8,
@@ -849,11 +852,11 @@ function EcosystemBubble({
           />
         </svg>
       </motion.div>
-      
+
       <div className="relative z-10 flex flex-col items-center justify-center p-5 text-center pointer-events-none gap-3">
-        <motion.p 
+        <motion.p
           className={`transition-all duration-500 not-italic ${titleClass} leading-tight`}
-          style={{ 
+          style={{
             fontSize: titleSize,
             color: isHovered && isDark ? "white" : (staticTextColor || "black"),
             textShadow: isHovered && isDark ? "0 0 8px rgba(255,255,255,0.4)" : "none"
@@ -865,10 +868,10 @@ function EcosystemBubble({
         >
           {title}
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           className="font-['Inter',sans-serif] leading-snug not-italic"
-          style={{ 
+          style={{
             fontSize: descSize,
             maxWidth: "80%",
             color: isHovered && isDark ? "rgba(255,255,255,0.9)" : (staticTextColor || "rgba(0,0,0,0.7)"),
@@ -885,7 +888,7 @@ function EcosystemBubble({
   );
 }
 
-function EcosystemCluster() {
+function EcosystemCluster({ onBubbleClick }: { onBubbleClick: (id: string) => void }) {
   return (
     <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
       <svg width="0" height="0" className="absolute">
@@ -936,49 +939,53 @@ function EcosystemCluster() {
       </div>
 
       {/* Bubbles moved slightly to accommodate the left content */}
-      <EcosystemBubble 
-        ml="274.69px" mt="137.18px" size="272.92px" 
+      <EcosystemBubble
+        ml="274.69px" mt="137.18px" size="272.92px"
         defaultColor="#1E1632"
         staticTextColor="white"
         hoverColor="#1E1632" isDark={true} gradientId="ateionGrad"
-        title="Ateion" 
+        title="Ateion"
         description="Ateion is building the infrastructure for a capability-based future by integrating early AI workshops with standard-setting competitions."
         titleSize="24px"
-        titleClass="font-['Outfit',sans-serif]"
+        titleClass="font-['Outfit:Semi_Bold',sans-serif]"
       />
-      
-      <EcosystemBubble 
-        ml="0" mt="0" size="274.68px" 
+
+      <EcosystemBubble
+        ml="0" mt="0" size="274.68px"
         defaultColor="#FF595B"
         staticTextColor="black"
         hoverColor="#FF595B" isDark={true} gradientId="gcoGrad"
-        title="GCO" 
+        title="GCO"
         description="From early AI workshops to the Global Capability Olympiad, and emerging initiatives like KRONOS and VOUCH."
         titleSize="32px"
+        onClick={() => onBubbleClick("gco")}
       />
 
-      <EcosystemBubble 
-        ml="162.88px" mt="414.51px" size="248.27px" 
+      <EcosystemBubble
+        ml="162.88px" mt="414.51px" size="248.27px"
         hoverColor="#FF595B" isDark={true} gradientId="gcoGrad"
         title="Kronos"
         description="Focused on specialized capabilities and advanced skill validation within the Ateion ecosystem."
         titleSize="20px"
+        onClick={() => onBubbleClick("kronos")}
       />
 
-      <EcosystemBubble 
-        ml="468.38px" mt="369.61px" size="248.27px" 
+      <EcosystemBubble
+        ml="468.38px" mt="369.61px" size="248.27px"
         hoverColor="#1E1632" isDark={true} gradientId="ateionGrad"
         title="Vouch"
         description="A decentralized verification protocol for authenticating learner capabilities and achievements."
         titleSize="22px"
+        onClick={() => onBubbleClick("vouch")}
       />
 
-      <EcosystemBubble 
-        ml="601.32px" mt="57.94px" size="333.67px" 
+      <EcosystemBubble
+        ml="601.32px" mt="57.94px" size="333.67px"
         hoverColor="#FF595B" isDark={true} gradientId="gcoGrad"
         title="Workshops"
         description="Engaging, hands-on learning experiences designed to bridge theory with practical AI execution."
         titleSize="20px"
+        onClick={() => onBubbleClick("workshops")}
       />
     </div>
   );
@@ -1082,7 +1089,7 @@ function FAQAccordionList() {
   return (
     <div className="content-stretch flex flex-col items-stretch relative shrink-0 w-full max-w-[900px]">
       {faqData.map((item, i) => (
-        <FAQItem 
+        <FAQItem
           key={i}
           question={item.question}
           answer={item.answer}
@@ -1104,6 +1111,48 @@ function FAQSectionInner() {
 }
 
 function EcosystemSection() {
+  const [activeId, setActiveId] = useState("gco");
+
+  const ecosystemData = {
+    gco: {
+      id: "gco",
+      number: "01",
+      title: "Global Capability Olympiad (GCO)",
+      description: "From early AI workshops to the Global Capability Olympiad, and emerging initiatives like KRONOS and VOUCH.",
+      hasTags: true
+    },
+    ateion: {
+      id: "ateion",
+      number: "02",
+      title: "Ateion",
+      description: "Ateion is building the infrastructure for a capability-based future by integrating early AI workshops with standard-setting competitions.",
+      hasTags: false
+    },
+    kronos: {
+      id: "kronos",
+      number: "03",
+      title: "Kronos",
+      description: "Focused on specialized capabilities and advanced skill validation within the Ateion ecosystem.",
+      hasTags: false
+    },
+    vouch: {
+      id: "vouch",
+      number: "04",
+      title: "Vouch",
+      description: "A decentralized verification protocol for authenticating learner capabilities and achievements.",
+      hasTags: false
+    },
+    workshops: {
+      id: "workshops",
+      number: "05",
+      title: "Workshops",
+      description: "Engaging, hands-on learning experiences designed to bridge theory with practical AI execution.",
+      hasTags: false
+    }
+  };
+
+  const activeData = ecosystemData[activeId as keyof typeof ecosystemData];
+
   return (
     <div className="flex flex-col items-center w-full py-[60px] sm:py-[80px] md:py-[120px] overflow-hidden bg-[#f7f3eb] px-4">
       <p className="font-['Outfit',sans-serif] text-[36px] sm:text-[48px] md:text-[58px] text-black text-center w-full mb-[40px] sm:mb-[60px] md:mb-[100px] tracking-tight px-4">
@@ -1111,8 +1160,8 @@ function EcosystemSection() {
         <span className="font-['IBM Plex Sans',sans-serif] italic">Ecosystem</span>
       </p>
 
-      {/* Unified Whole Entity: Responsive layout for mobile and desktop */}
-      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-[40px] sm:gap-[60px] scale-[0.85] sm:scale-[0.88] origin-center">
+      {/* Unified Whole Entity: Shifted left by -100px to satisfy the visual centering request and address the "extra space" on the left */}
+      <div className="w-full flex flex-row items-center justify-center gap-[60px] scale-[0.88] origin-center translate-x-[-100px]">
         <GcoFeatureBadge />
         <EcosystemCluster />
       </div>
