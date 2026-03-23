@@ -1163,7 +1163,7 @@ function EcosystemSection() {
 
   return (
     <div className="flex flex-col items-center w-full py-[60px] sm:py-[80px] md:py-[120px] overflow-hidden bg-[#f7f3eb] px-4">
-      <p className="font-['Outfit',sans-serif] text-[36px] sm:text-[48px] md:text-[58px] text-black text-center w-full mb-[40px] sm:mb-[60px] md:mb-[100px] tracking-tight px-4">
+      <p className="font-['Outfit',sans-serif] text-[36px] sm:text-[48px] md:text-[58px] text-black text-center w-full mb-[20px] sm:mb-[30px] md:mb-[40px] tracking-tight px-4">
         <span className="leading-[1.2]">Ateion as an </span>
         <span className="font-['IBM Plex Sans',sans-serif] italic">Ecosystem</span>
       </p>
