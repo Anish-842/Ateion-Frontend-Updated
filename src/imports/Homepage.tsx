@@ -734,30 +734,37 @@ function GcoFeatureTagsRow() {
 
 function GcoFeatureBadge({ activeData }: { activeData: { id: string, number: string, title: string, description: string, hasTags: boolean } }) {
   return (
-    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
-      <p className="leading-[1.19] not-italic relative shrink-0 text-[48px] text-black tracking-[0.4px] w-full max-w-[500px]" style={{ fontFamily: "'OV Soge', sans-serif" }}>Global Capability Olympiad (GCO)</p>
-      <div className="flex justify-start w-full">
-        <GcoFeatureTagsRow />
-      </div>
-    </div>
-  );
-}
-
-function GcoFeatureNumber() {
-  return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
-      <p className="font-['DM_Sans:Light',sans-serif] font-light leading-[2] relative shrink-0 text-[24px] text-black w-full opacity-60 mb-2" style={{ fontVariationSettings: "'opsz' 14" }}>
-        (01)
-      </p>
-      <GcoFeatureTitleContainer />
-    </div>
-  );
-}
-
-function GcoFeatureBadge() {
-  return (
     <div className="col-1 content-stretch flex flex-col gap-[32px] items-start ml-0 mt-0 relative row-1 w-[392px]">
-      <GcoFeatureNumber />
+      <div className="content-stretch flex flex-col items-start relative shrink-0 w-full min-h-[220px]">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeData.id}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="w-full flex flex-col items-start"
+          >
+            <p className="font-['DM_Sans:Light',sans-serif] font-light leading-[2] relative shrink-0 text-[24px] text-black w-full opacity-60 mb-2" style={{ fontVariationSettings: "'opsz' 14" }}>
+              ({activeData.number})
+            </p>
+            <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
+              <p className="leading-[1.19] not-italic relative shrink-0 text-[48px] text-black tracking-[0.4px] w-full max-w-[500px]" style={{ fontFamily: "'OV Soge', sans-serif" }}>
+                {activeData.title}
+              </p>
+              <div className="flex justify-start w-full">
+                {activeData.hasTags ? (
+                  <GcoFeatureTagsRow />
+                ) : (
+                  <p className="font-['Inter',sans-serif] text-[18px] text-[rgba(0,0,0,0.7)] leading-relaxed pr-8">
+                    {activeData.description}
+                  </p>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
       <div className="flex items-center justify-between bg-[#161616] h-[54px] pl-7 pr-6 rounded-full w-[174px] cursor-pointer group hover:bg-[#222] transition-colors" data-name="view more">
         <p className="font-['Outfit',sans-serif] leading-none text-[17px] text-white tracking-[0.16px] whitespace-nowrap pt-0.5">View More</p>
         <div className="flex items-center justify-center">
@@ -948,6 +955,7 @@ function EcosystemCluster({ onBubbleClick }: { onBubbleClick: (id: string) => vo
         description="Ateion is building the infrastructure for a capability-based future by integrating early AI workshops with standard-setting competitions."
         titleSize="24px"
         titleClass="font-['Outfit:Semi_Bold',sans-serif]"
+        onClick={() => onBubbleClick("ateion")}
       />
 
       <EcosystemBubble
@@ -1162,8 +1170,8 @@ function EcosystemSection() {
 
       {/* Unified Whole Entity: Shifted left by -100px to satisfy the visual centering request and address the "extra space" on the left */}
       <div className="w-full flex flex-row items-center justify-center gap-[60px] scale-[0.88] origin-center translate-x-[-100px]">
-        <GcoFeatureBadge />
-        <EcosystemCluster />
+        <GcoFeatureBadge activeData={activeData} />
+        <EcosystemCluster onBubbleClick={setActiveId} />
       </div>
     </div>
   );
