@@ -329,7 +329,7 @@ function GlobalPresenceMapSection() {
       </div>
 
       {/* Dark stats + map block */}
-      <div className="bg-black h-auto relative shrink-0 w-full py-[40px] sm:py-[56px] md:py-[80px]">
+      <div className="dark-section bg-black h-auto relative shrink-0 w-full py-[40px] sm:py-[56px] md:py-[80px]">
         <div className="content-stretch flex flex-col items-center relative size-full px-[16px] sm:px-[24px] md:px-[40px]">
           <div className="content-stretch flex flex-col items-center relative shrink-0 w-full">
             <div className="content-stretch flex flex-col gap-[32px] sm:gap-[48px] md:gap-[64px] items-center relative shrink-0 w-full max-w-[1280px] mx-auto">

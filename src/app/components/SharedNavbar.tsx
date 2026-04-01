@@ -23,16 +23,21 @@ function useNavbarOnDark() {
       if (!navbar) return;
       
       const navRect = navbar.getBoundingClientRect();
+      const navMidY = navRect.top + navRect.height / 2;
+      
+      // Find all sections that should trigger the white logo/button
       const darkSections = document.querySelectorAll('.dark-section');
       
       let overDark = false;
-      // Also check standard dark themes like the NextThemes data-theme
+
+      // Check for theme attribute first
       const isDarkTheme = document.documentElement.getAttribute('data-theme') === 'dark';
       
+      // Check physical overlap
       darkSections.forEach(section => {
         const rect = section.getBoundingClientRect();
-        // Check if navbar's mid-height is within the dark section's vertical bounds
-        const navMidY = navRect.top + navRect.height / 2;
+        
+        // If the middle of the navbar is within the top and bottom of a dark section
         if (navMidY >= rect.top && navMidY <= rect.bottom) {
           overDark = true;
         }
@@ -41,10 +46,12 @@ function useNavbarOnDark() {
       setIsOnDarkSection(overDark || isDarkTheme);
     };
 
+    // Use passive scroll for performance
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll);
+    
+    // Initial check
     handleScroll();
-    setTimeout(handleScroll, 100); // Trigger after slight delay to ensure layout shifts are resolved
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
