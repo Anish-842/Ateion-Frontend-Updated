@@ -40,7 +40,7 @@ function GcoFeatureBadge({
 }) {
   return (
     // On mobile: full width, centered text. On desktop: fixed 392px, left-aligned.
-    <div className="flex flex-col gap-[32px] items-start w-full md:w-[392px] md:shrink-0">
+    <div className={`flex flex-col ${activeData.id === "gco" ? "" : "gap-[32px]"} items-start w-full md:w-[392px] md:shrink-0`}>
       <div className="flex flex-col items-start w-full min-h-[180px] md:min-h-[220px]">
         <AnimatePresence mode="wait">
           <motion.div
@@ -60,7 +60,43 @@ function GcoFeatureBadge({
               </p>
               <div className="flex justify-start w-full">
                 {activeData.hasTags ? (
-                  <GcoFeatureTagsRow />
+                  activeData.id === "gco" ? (
+                    <div className="flex flex-col gap-4 w-full">
+                      <div className="flex gap-4">
+                        <Tag text="Brand Strategy" />
+                        <Tag text="Brand Naming" />
+                      </div>
+                      <div className="flex gap-4 items-center">
+                        <Tag text="Tagline" />
+                        <div
+                          className="flex items-center justify-between bg-[#161616] h-[54px] pl-7 pr-6 rounded-full w-[174px] cursor-pointer group hover:bg-[#222] transition-colors"
+                          data-name="view more"
+                        >
+                          <p className="font-['Outfit',sans-serif] leading-none text-[17px] text-white tracking-[0.16px] whitespace-nowrap pt-0.5">
+                            View More
+                          </p>
+                          <div className="flex items-center justify-center">
+                            <div className="flex items-center justify-center h-[26px] w-[26px] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                              <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="white"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <path d="M7 17L17 7M7 7h10v10" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <GcoFeatureTagsRow />
+                  )
                 ) : (
                   <p className="font-['Inter',sans-serif] text-[16px] md:text-[18px] text-[rgba(0,0,0,0.7)] leading-relaxed md:pr-8">
                     {activeData.description}
@@ -72,30 +108,32 @@ function GcoFeatureBadge({
         </AnimatePresence>
       </div>
 
-      <div
-        className="flex items-center justify-between bg-[#161616] h-[54px] pl-7 pr-6 rounded-full w-[174px] cursor-pointer group hover:bg-[#222] transition-colors"
-        data-name="view more"
-      >
-        <p className="font-['Outfit',sans-serif] leading-none text-[17px] text-white tracking-[0.16px] whitespace-nowrap pt-0.5">
-          View More
-        </p>
-        <div className="flex items-center justify-center">
-          <div className="flex items-center justify-center h-[26px] w-[26px] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M7 17L17 7M7 7h10v10" />
-            </svg>
+      {activeData.id !== "gco" && (
+        <div
+          className="flex items-center justify-between bg-[#161616] h-[54px] pl-7 pr-6 rounded-full w-[174px] cursor-pointer group hover:bg-[#222] transition-colors"
+          data-name="view more"
+        >
+          <p className="font-['Outfit',sans-serif] leading-none text-[17px] text-white tracking-[0.16px] whitespace-nowrap pt-0.5">
+            View More
+          </p>
+          <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center h-[26px] w-[26px] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M7 17L17 7M7 7h10v10" />
+              </svg>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -144,23 +182,16 @@ function EcosystemBubble({
       <motion.div
         className="absolute inset-0"
         animate={{
-          y: isHovered ? 0 : [0, -8, 0],
-          rotate: isHovered ? 0 : [0, 1, -1, 0],
+          y: isHovered ? -4 : 0,
+          rotate: isHovered ? 1 : 0,
         }}
         transition={{
-          y: {
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          },
-          rotate: {
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          },
+          type: "spring",
+          stiffness: 400,
+          damping: 25,
         }}
         style={{
-          filter: isHovered ? "drop-shadow(0 0 20px rgba(30, 22, 50, 0.6))" : "none",
+          filter: isHovered ? "drop-shadow(0 0 15px rgba(30, 22, 50, 0.5))" : "none",
         }}
       >
         <svg
@@ -190,7 +221,7 @@ function EcosystemBubble({
             cy="50"
             r="49.5"
             animate={{
-              fill: isHovered ? (hoverColor === "#FF595B" ? "#FF595B" : gradientId ? `url(#${gradientId})` : "#1E1632") : defaultColor,
+              fill: isHovered ? (hoverColor === "#FF595B" ? "#FF595B" : "#1E1632") : defaultColor,
               stroke: isHovered
                 ? hoverColor
                 : defaultColor !== "transparent"
@@ -199,7 +230,7 @@ function EcosystemBubble({
               strokeWidth: isHovered ? 3 : 0.8,
               scale: isHovered ? 1.12 : 1,
             }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
           />
         </svg>
       </motion.div>
