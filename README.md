@@ -1,16 +1,46 @@
-VITE_API_BASE_URL=https://your-backend-name.onrender.com/api
+# Deployment Guide
 
-ALLOWED_ORIGINS
-SPRING_DATASOURCE_URL
-SPRING_DATASOURCE_USERNAME
-SPRING_DATASOURCE_PASSWORD
+A step-by-step guide to deploying this application using **Supabase** (database), **Render** (backend), and **Vercel** (frontend).
 
-A Quick Warning on Supabase URLs
-When you copy the connection string from Supabase, they often give you a URI that looks like this:
-postgresql://postgres.xyz:password@host:5432/postgres
+---
 
-You must change the start of it for Spring Boot:
+## Prerequisites
 
-Supabase gives: postgresql://...
+- [Supabase](https://supabase.com) account
+- [Render](https://render.com) account
+- [Vercel](https://vercel.com) account
+- Docker installed locally (for testing, optional)
 
-Spring Boot needs: jdbc:postgresql://...
+---
+
+## Step 1: Create Database on Supabase
+
+1. Go to [https://supabase.com](https://supabase.com) and sign in.
+2. Click **New Project** and fill in your project details.
+3. Once the project is created, navigate to **Settings → Database**.
+4. Note down the following credentials — you'll need them for the backend:
+
+   | Variable | Where to find it |
+   |---|---|
+   | `SPRING_DATASOURCE_URL` | Settings → Database → Connection String (JDBC) |
+   | `SPRING_DATASOURCE_USERNAME` | Settings → Database → Username |
+   | `SPRING_DATASOURCE_PASSWORD` | Settings → Database → Password |
+
+> **Tip:** The JDBC connection string format looks like:
+> `jdbc:postgresql://db.<project-ref>.supabase.co:5432/postgres`
+
+---
+
+## Step 2: Deploy Backend on Render
+
+1. Go to [https://render.com](https://render.com) and sign in.
+2. Click **New → Web Service**.
+3. Connect your GitHub repository.
+4. Configure the service with the following settings:
+
+   | Setting | Value |
+   |---|---|
+   | **Language** | `Docker` |
+   | **Root Directory** | `backend` |
+
+5. Under **Environment Variables**, add the following:
