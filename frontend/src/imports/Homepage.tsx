@@ -409,14 +409,63 @@ function EducationStatusWrapper() {
             </p>
           </div>
 
-          {/* Placeholder image grid */}
-          <div className="content-stretch flex flex-col gap-[20px] items-start relative shrink-0 w-full">
-            {[0, 1].map((row) => (
-              <div key={row} className="content-stretch flex flex-col sm:flex-row gap-[12px] sm:gap-[20px] items-center relative shrink-0 w-full">
-                {[0, 1, 2].map((col) => (
-                  <div key={col} className="bg-[#d9d9d9] h-[200px] sm:h-[280px] md:h-[335px] shrink-0 flex-1" />
-                ))}
-              </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[16px] sm:gap-[24px] w-full mt-[16px]">
+            {[
+              {
+                tag: "Skills Gap Crisis",
+                title: "“Degrees Are Rising. Job Readiness Isn’t.”",
+                source: "World Economic Forum",
+                link: "https://www.weforum.org/reports/the-future-of-jobs-report-2023/"
+              },
+              {
+                tag: "Marks vs Real Learning",
+                title: "“High Scores. Low Thinking.”",
+                source: "Harvard Graduate School of Education",
+                link: "https://www.gse.harvard.edu/ideas/usable-knowledge/18/07/why-we-need-rethink-learning"
+              },
+              {
+                tag: "Outdated Curriculum Problem",
+                title: "“Education Moves in Years. The World Moves in Weeks.”",
+                source: "McKinsey & Company",
+                link: "https://www.mckinsey.com/industries/education/our-insights/how-technology-is-shaping-learning"
+              },
+              {
+                tag: "AI Disruption",
+                title: "“Students Are Being Trained for a World That No Longer Exists.”",
+                source: "Stanford AI Index",
+                link: "https://aiindex.stanford.edu/report/"
+              },
+              {
+                tag: "Global Shift to Skills-Based Education",
+                title: "“The World Is Moving Beyond Marks. Most Schools Aren’t.”",
+                source: "OECD (PISA & Education Trends)",
+                link: "https://www.oecd.org/education/global-competence/"
+              },
+              {
+                tag: "Need for New Measurement Systems",
+                title: "“What If Exams Measured Thinking Instead of Memory?”",
+                source: "OECD Future of Education & Skills 2030",
+                link: "https://www.oecd.org/education/2030-project/"
+              }
+            ].map((item, idx) => (
+              <a
+                key={idx}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col justify-between bg-white p-[24px] sm:p-[32px] rounded-[16px] sm:rounded-[20px] shadow-[0px_4px_20px_0px_rgba(0,0,0,0.03)] hover:shadow-[0px_8px_30px_0px_rgba(0,0,0,0.08)] transition-all duration-300 border border-transparent hover:border-[#fb4444]/30 h-[auto] min-h-[220px] sm:min-h-[260px] no-underline"
+              >
+                <div className="flex flex-col gap-[16px]">
+                  <div className="flex items-center gap-[8px]">
+                    <span className="text-[12px] sm:text-[13px] uppercase tracking-wider text-[#666] font-semibold" style={{ fontFamily: "'Inter', sans-serif" }}>{item.tag}</span>
+                  </div>
+                  <h3 className="text-[20px] sm:text-[24px] md:text-[28px] leading-[1.25] text-black group-hover:text-[#fb4444] transition-colors" style={{ fontFamily: "'OV Soge', sans-serif", fontWeight: 600 }}>{item.title}</h3>
+                </div>
+                <div className="flex items-center gap-[12px] mt-[24px]">
+                  <div className="h-[2px] w-[24px] bg-[#fb4444] transition-all duration-300 group-hover:w-[40px]" />
+                  <span className="text-[13px] sm:text-[14px] text-[#444] font-medium leading-[1.4]" style={{ fontFamily: "'Inter', sans-serif" }}>{item.source}</span>
+                </div>
+              </a>
             ))}
           </div>
         </div>
