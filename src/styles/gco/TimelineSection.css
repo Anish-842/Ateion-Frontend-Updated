@@ -1,0 +1,221 @@
+.timeline-section {
+  min-height: auto;
+  background-color: #f7f3eb;
+  padding: 4rem 0;
+  font-family: 'SF Pro Display', sans-serif;
+}
+
+.timeline-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.timeline-title {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #1a1b22;
+  margin-bottom: 0.75rem;
+  font-family: 'OV Soge', sans-serif;
+  text-align: center;
+  margin-bottom: 96px;
+}
+
+.timeline-relative { position: relative; }
+
+.timeline-line-bg {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  background-color: #d1d5db;
+  transform: translateX(-50%);
+  top: 0;
+}
+
+.timeline-line-fill {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  background-color: #1a1a1a;
+  transform: translateX(-50%);
+  top: 0;
+}
+
+.timeline-steps-wrapper { position: relative; }
+
+.timeline-step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 160px;
+}
+
+.timeline-step-mobile {
+  display: none;
+}
+
+.timeline-content-side {
+  position: absolute;
+  width: 320px;
+  display: flex;
+}
+
+.timeline-left {
+  right: 50%;
+  padding-right: 4rem;
+  justify-content: flex-end;
+}
+
+.timeline-right {
+  left: 50%;
+  padding-left: 4rem;
+}
+
+.timeline-text {
+  font-size: clamp(0.9rem, 1.5vw, 1.125rem);
+  line-height: 1.6;
+  color: #333;
+}
+
+.text-right { text-align: right; }
+.text-left  { text-align: left; }
+
+.timeline-icon-container {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: #D4CDB7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+}
+
+.timeline-icon-svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.timeline-circle {
+  position: relative;
+  z-index: 10;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #f5f1e8;
+}
+
+.timeline-number {
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+/* ─── Tablet ≤768px ──────────────────────────── */
+@media (max-width: 768px) {
+  .timeline-section { padding: 3rem 0; }
+  .timeline-container {
+    width: 100%;
+    padding: 0 1.25rem;
+  }
+  .timeline-title { margin-bottom: 2.5rem; }
+
+  .timeline-line-bg,
+  .timeline-line-fill {
+    left: 1.5rem;
+    transform: none;
+  }
+
+  .timeline-step-desktop {
+    display: none;
+  }
+
+  .timeline-step-mobile {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .timeline-circle-mobile {
+    width: 2.75rem;
+    height: 2.75rem;
+    min-width: 2.75rem;
+    margin-left: 0.1rem;
+    border-width: 3px;
+    box-shadow: 0 10px 22px rgba(30, 22, 50, 0.18);
+  }
+
+  .timeline-mobile-card {
+    width: calc(100% - 3.75rem);
+    background: linear-gradient(180deg, #fcfaf5 0%, #f5efe3 100%);
+    border: 1px solid rgba(30, 22, 50, 0.08);
+    border-radius: 24px;
+    padding: 1rem 1rem 1rem 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    box-shadow: 0 18px 40px rgba(30, 22, 50, 0.08);
+  }
+
+  .timeline-icon-container-mobile {
+    width: 3.4rem;
+    height: 3.4rem;
+    min-width: 3.4rem;
+    background-color: #e4dbc6;
+  }
+
+  .timeline-text-mobile {
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .timeline-number {
+    font-size: 1rem;
+  }
+}
+
+/* ─── Mobile ≤600px ──────────────────────────── */
+@media (max-width: 600px) {
+  .timeline-container { padding: 0 1rem; }
+  .timeline-title {
+    font-size: clamp(1.85rem, 8vw, 2.4rem);
+    margin-bottom: 2rem;
+  }
+  .timeline-line-bg,
+  .timeline-line-fill {
+    left: 1.375rem;
+  }
+  .timeline-step-mobile {
+    gap: 0.85rem;
+    margin-bottom: 2.25rem;
+  }
+  .timeline-circle-mobile {
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 2.5rem;
+  }
+  .timeline-mobile-card {
+    width: calc(100% - 3.35rem);
+    border-radius: 20px;
+    padding: 0.95rem;
+    gap: 0.75rem;
+  }
+  .timeline-icon-container-mobile {
+    width: 3rem;
+    height: 3rem;
+    min-width: 3rem;
+  }
+  .timeline-text-mobile {
+    font-size: 0.96rem;
+  }
+}
