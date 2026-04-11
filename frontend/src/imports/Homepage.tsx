@@ -391,6 +391,39 @@ function GlobalPresenceMapSection() {
    EDUCATION STATUS GRID
 ───────────────────────────────────────────── */
 
+const gridItems = [
+  {
+    title: "“Degrees Are Rising. Job Readiness Isn’t.”",
+    source: "World Economic Forum",
+    link: "https://www.weforum.org/reports/the-future-of-jobs-report-2023/"
+  },
+  {
+    title: "“High Scores. Low Thinking.”",
+    source: "Harvard Graduate School of Education",
+    link: "https://www.gse.harvard.edu/ideas/usable-knowledge/18/07/why-we-need-rethink-learning"
+  },
+  {
+    title: "“Education Moves in Years. The World Moves in Weeks.”",
+    source: "McKinsey & Company",
+    link: "https://www.mckinsey.com/industries/education/our-insights/how-technology-is-shaping-learning"
+  },
+  {
+    title: "“Students Are Being Trained for a World That No Longer Exists.”",
+    source: "Stanford AI Index",
+    link: "https://aiindex.stanford.edu/report/"
+  },
+  {
+    title: "“The World Is Moving Beyond Marks. Most Schools Aren’t.”",
+    source: "OECD (PISA & Education Trends)",
+    link: "https://www.oecd.org/education/global-competence/"
+  },
+  {
+    title: "“What If Exams Measured Thinking Instead of Memory?”",
+    source: "OECD Future of Education & Skills 2030",
+    link: "https://www.oecd.org/education/2030-project/"
+  }
+];
+
 function EducationStatusWrapper() {
   return (
     <div className="w-full px-[16px] sm:px-[24px] md:px-[64px]">
@@ -409,14 +442,29 @@ function EducationStatusWrapper() {
             </p>
           </div>
 
-          {/* Placeholder image grid */}
-          <div className="content-stretch flex flex-col gap-[20px] items-start relative shrink-0 w-full">
-            {[0, 1].map((row) => (
-              <div key={row} className="content-stretch flex flex-col sm:flex-row gap-[12px] sm:gap-[20px] items-center relative shrink-0 w-full">
-                {[0, 1, 2].map((col) => (
-                  <div key={col} className="bg-[#d9d9d9] h-[200px] sm:h-[280px] md:h-[335px] shrink-0 flex-1" />
-                ))}
-              </div>
+          {/* Links grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[16px] sm:gap-[24px] w-full">
+            {gridItems.map((item, i) => (
+              <motion.a
+                whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={i}
+                className="bg-white hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-300 min-h-[200px] sm:min-h-[240px] md:min-h-[260px] rounded-[20px] p-[28px] sm:p-[32px] flex flex-col justify-between border border-black/5 group"
+              >
+                <p className="text-[22px] sm:text-[26px] md:text-[30px] font-medium text-black leading-[1.05] group-hover:text-[#e03a3a] transition-colors" style={{ fontFamily: "'OV Soge', sans-serif", letterSpacing: "-0.01em" }}>
+                  {item.title}
+                </p>
+                <div className="mt-[20px] sm:mt-[24px] flex flex-col gap-[6px]">
+                  <span className="text-[12px] sm:text-[13px] font-bold text-black opacity-50 uppercase tracking-wider" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    Source
+                  </span>
+                  <span className="text-[15px] sm:text-[16px] font-semibold text-black opacity-80" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    {item.source}
+                  </span>
+                </div>
+              </motion.a>
             ))}
           </div>
         </div>
