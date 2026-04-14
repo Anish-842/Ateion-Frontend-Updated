@@ -76,28 +76,36 @@ export default function RedIntelligenceCard() {
     <div className="bg-[#ff6b6b] content-stretch flex flex-col items-center justify-center pb-[32px] sm:pb-[48px] pl-[24px] sm:pl-[64px] pr-[16px] sm:pr-[48px] pt-[32px] sm:pt-[48px] relative rounded-[13px] sm:rounded-[20px] shrink-0 md:shrink flex-1 w-full">
       <div className="content-stretch flex flex-col gap-[24px] sm:gap-[32px] items-start relative shrink-0 w-full max-w-[800px]">
         {/* Desktop layout */}
-        <div className="hidden sm:flex items-center justify-between relative shrink-0 w-full gap-[24px]">
-          <div className="relative shrink-0 w-[45%]">
-            <p className="relative leading-[1.15] not-italic text-[28px] sm:text-[36px] md:text-[42px] text-black w-full" style={{ fontFamily: "'OV Soge', sans-serif", letterSpacing: "-0.01em" }}>
-              Education is not broken. Its measurement system is :
+        <div className="hidden lg:flex items-center justify-between relative shrink-0 w-full gap-[24px]">
+          <div className="relative shrink-0 w-[50%]">
+            <p className="font-bold relative leading-[1.15] not-italic text-[28px] lg:text-[36px] xl:text-[42px] text-black w-full" style={{ fontFamily: "'OV Soge', sans-serif", letterSpacing: "-0.01em" }}>
+              Education is<br />
+              Not broken.<br />
+              Its measurement<br />
+              System is :
             </p>
           </div>
-          <div className="w-[50%] flex justify-start">
+          <div className="w-[45%] flex justify-end xl:justify-start">
             <VerticalTicker />
           </div>
         </div>
-        {/* Mobile layout */}
-        <div className="sm:hidden flex flex-col gap-[16px] items-start w-full">
-          <p className="relative leading-[1.25] not-italic text-[28px] text-black" style={{ fontFamily: "'OV Soge', sans-serif" }}>
-            Education is not broken. Its measurement system is changing.
+        {/* Mobile & Tablet layout */}
+        <div className="lg:hidden flex flex-col gap-[16px] items-start w-full">
+          <p className="font-bold relative leading-[1.25] not-italic text-[28px] sm:text-[32px] md:text-[36px] text-black" style={{ fontFamily: "'OV Soge', sans-serif", letterSpacing: "-0.01em" }}>
+            Education is<br />
+            Not broken.<br />
+            Its measurement<br />
+            System is :
           </p>
-          <VerticalTicker />
+          <div className="w-full flex justify-start">
+            <VerticalTicker />
+          </div>
         </div>
         <div className="w-full mt-[12px] sm:mt-[20px]">
-          <p className="font-['Inter',sans-serif] h-auto leading-[1.3] not-italic relative shrink-0 text-black w-full flex-1">
+          <p className="font-['Manrope',sans-serif] h-auto leading-[1.3] not-italic relative shrink-0 text-black w-full flex-1">
             <span className="text-[20px] sm:text-[24px] md:text-[26px]">{`Ateion replaces memory-based validation with `}</span>
             <br className="hidden sm:block" />
-            <span className="font-['IBM Plex Sans',sans-serif] italic text-[32px] sm:text-[42px] md:text-[48px]">Capability-based intelligence.</span>
+            <span className="font-['Manrope',sans-serif] italic text-[32px] sm:text-[42px] md:text-[48px]">Capability-based intelligence.</span>
           </p>
         </div>
       </div>

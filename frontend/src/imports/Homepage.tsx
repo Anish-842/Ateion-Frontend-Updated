@@ -159,7 +159,7 @@ function GlobalAlignedBlackCard() {
     <div className="bg-[#202020] content-stretch flex items-start pb-[24px] sm:pb-[32px] pt-[24px] sm:pt-[32px] px-[24px] sm:px-[32px] relative rounded-[13px] sm:rounded-[20px] shrink-0 md:shrink w-full md:w-[45%] lg:w-[40%]">
       <div className="flex flex-col gap-6 p-4 rounded-2xl shadow-sm w-full max-w-4xl">
         <div className="content-stretch flex flex-col gap-[16px] sm:gap-[24px] items-start relative shrink-0 w-full max-w-[260px]">
-          <p className="leading-[normal] min-w-full not-italic relative shrink-0 text-[28px] sm:text-[36px] text-white w-[min-content]" style={{ fontFamily: "'OV Soge', sans-serif" }}>Globally Aligned with</p>
+          <p className="font-bold leading-[normal] min-w-full not-italic relative shrink-0 text-[28px] sm:text-[36px] text-white w-[min-content]" style={{ fontFamily: "'OV Soge', sans-serif" }}>Globally Aligned with</p>
         </div>
         <div className="flex flex-row gap-4 items-end w-full">
           <div className="w-1/2">
@@ -308,7 +308,7 @@ function EducationStatusWrapper() {
         <div className="flex flex-col gap-[16px] sm:gap-[24px] items-start w-full">
           {/* Header row */}
           <div className="content-stretch flex flex-col sm:flex-row items-start sm:items-center justify-between not-italic relative shrink-0 text-black w-full py-[24px] sm:py-[48px] gap-[24px] sm:gap-[64px]">
-            <p className="leading-tight relative shrink-0 text-[28px] sm:text-[36px] md:text-[48px] flex-1" style={{ fontFamily: "'OV Soge', sans-serif" }}>
+            <p className="font-bold leading-tight relative shrink-0 text-[28px] sm:text-[36px] md:text-[48px] flex-1" style={{ fontFamily: "'OV Soge', sans-serif" }}>
               Education is not broken.
             </p>
             <p className="font-['Inter',sans-serif] leading-relaxed relative shrink-0 text-[16px] sm:text-[18px] text-[rgba(0,0,0,0.7)] flex-1">

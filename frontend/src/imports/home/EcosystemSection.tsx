@@ -53,14 +53,14 @@ function GcoFeatureBadge({
           >
             <div className="flex flex-col gap-[20px] md:gap-[24px] items-start w-full">
               <p
-                className="leading-[1.19] not-italic text-[36px] sm:text-[42px] md:text-[48px] text-black tracking-[0.4px] w-full max-w-[500px]"
+                className="font-bold leading-[1.19] not-italic text-[36px] sm:text-[42px] md:text-[48px] text-black tracking-[0.4px] w-full max-w-[500px]"
                 style={{ fontFamily: "'OV Soge', sans-serif" }}
               >
                 {activeData.title}
               </p>
               <div className="flex justify-start w-full">
                 {activeData.id !== "gco" && (
-                  <p className="font-['Inter',sans-serif] text-[16px] md:text-[18px] text-[rgba(0,0,0,0.7)] leading-relaxed md:pr-8">
+                  <p className="font-['Manrope',sans-serif] text-[16px] md:text-[18px] text-[rgba(0,0,0,0.7)] leading-relaxed md:pr-8">
                     {activeData.description}
                   </p>
                 )}
@@ -200,8 +200,9 @@ function EcosystemBubble({
 
       <div className="relative z-10 flex flex-col items-center justify-center p-5 text-center pointer-events-none gap-3">
         <motion.p
-          className={`transition-all duration-500 not-italic ${titleClass} leading-tight`}
+          className={`transition-all duration-500 not-italic ${titleClass} leading-tight font-bold`}
           style={{
+            fontFamily: "'OV Soge', sans-serif",
             fontSize: titleSize,
             color:
               isHovered && isDark ? "white" : staticTextColor || "black",
@@ -219,7 +220,7 @@ function EcosystemBubble({
         </motion.p>
 
         <motion.p
-          className="font-['Inter',sans-serif] leading-snug not-italic"
+          className="font-['Manrope',sans-serif] leading-snug not-italic"
           style={{
             fontSize: descSize,
             maxWidth: "80%",
@@ -523,11 +524,8 @@ export default function EcosystemSection() {
     // real document space so the next sibling renders below it — no overlap.
     <section className="relative w-full bg-[#f7f3eb] py-[60px] sm:py-[80px] md:py-[120px]">
       {/* Section title */}
-      <p className="font-['Outfit',sans-serif] text-[36px] sm:text-[48px] md:text-[58px] text-black text-center w-full mb-[32px] sm:mb-[48px] md:mb-[60px] tracking-tight px-4">
-        <span className="leading-[1.2]">Ateion as an </span>
-        <span className="font-['IBM Plex Sans',sans-serif] italic">
-          Ecosystem
-        </span>
+      <p className="font-bold text-[36px] sm:text-[48px] md:text-[58px] text-black text-center w-full mb-[32px] sm:mb-[48px] md:mb-[60px] tracking-tight px-4" style={{ fontFamily: "'OV Soge', sans-serif" }}>
+        <span>Ateion as an Ecosystem</span>
       </p>
 
       {/*
