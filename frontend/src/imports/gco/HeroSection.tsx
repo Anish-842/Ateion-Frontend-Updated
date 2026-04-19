@@ -3,9 +3,7 @@ import { useNavigate } from "react-router";
 import { ImageTrail } from "../../app/components/ui/image-trail";
 import logoEducation from "../../assets/gco/logo-education.png";
 import logoPolicy from "../../assets/gco/education-ministry-logo.jpg";
-import trail1 from "../../assets/gco/trail-images/olympiad-students-1.png";
 import trail2 from "../../assets/gco/trail-images/olympiad-students-2.png";
-import trail3 from "../../assets/gco/trail-images/olympiad-students-3.png";
 import trail4 from "../../assets/gco/trail-images/olympiad-students-4.png";
 import trail5 from "../../assets/gco/trail-images/olympiad-students-5.png";
 import "../../styles/gco/HeroSection.css";
@@ -45,7 +43,7 @@ function HeroSection() {
     { src: logoPolicy, alt: "Education Policy 2020 Logo" },
   ];
 
-  const images = [trail1, trail2, trail3, trail4, trail5];
+  const images = [trail2, trail4, trail5];
 
   return (
     <section className="hero" ref={heroRef}>

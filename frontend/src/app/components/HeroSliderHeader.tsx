@@ -9,6 +9,7 @@ import hero6 from "../../assets/hero/hero6.png";
 import hero7 from "../../assets/hero/hero7.png";
 import hero8 from "../../assets/hero/hero8.png";
 import hero9 from "../../assets/hero/hero9.png";
+import certificate from "../../assets/hero/certificate.jpg";
 import SharedNavbar from "./SharedNavbar";
 
 const itemClass = "h-[120px] sm:h-[150px] md:h-[180px] lg:h-[200px] relative shrink-0 rounded-lg overflow-hidden shadow-sm transition-all duration-500";
@@ -28,8 +29,8 @@ export function Frame67() {
       <div className={`${itemClass} w-[350px]`}>
         <img alt="" className="w-full h-full object-cover" src={hero4} />
       </div>
-      <div className={`${itemClass} w-[400px]`}>
-        <img alt="" className="w-full h-full object-cover" src={hero5} />
+      <div className={`${itemClass} w-[360px]`}>
+        <img alt="" className="w-full h-full object-cover" src={hero8} />
       </div>
     </>
   );
@@ -37,7 +38,7 @@ export function Frame67() {
   return (
     <div className="overflow-hidden relative w-full">
       <motion.div
-        animate={{ x: [0, -1830] }}
+        animate={{ x: [0, -1850] }}
         transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
         className="flex gap-[12px] items-end shrink-0"
         style={{ width: "max-content" }}
@@ -51,20 +52,20 @@ export function Frame67() {
 export function Frame66() {
   const items = (
     <>
+      <div className={`${itemClass} w-[400px]`}>
+        <img alt="" className="w-full h-full object-cover" src={hero5} />
+      </div>
       <div className={`${itemClass} w-[320px]`}>
         <img alt="" className="w-full h-full object-cover" src={hero6} />
       </div>
       <div className={`${itemClass} w-[380px]`}>
         <img alt="" className="w-full h-full object-cover" src={hero7} />
       </div>
-      <div className={`${itemClass} w-[360px]`}>
-        <img alt="" className="w-full h-full object-cover" src={hero8} />
-      </div>
       <div className={`${itemClass} w-[420px]`}>
         <img alt="" className="w-full h-full object-cover" src={hero9} />
       </div>
-      <div className={`${itemClass} w-[300px]`}>
-        <img alt="" className="w-full h-full object-cover" src={hero1} />
+      <div className={`${itemClass} w-[340px]`}>
+        <img alt="" className="w-full h-full object-cover" src={certificate} />
       </div>
     </>
   );
@@ -72,7 +73,7 @@ export function Frame66() {
   return (
     <div className="overflow-hidden relative w-full">
       <motion.div
-        animate={{ x: [0, -1780] }}
+        animate={{ x: [0, -1920] }}
         transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
         className="flex gap-[12px] items-center shrink-0"
         style={{ width: "max-content" }}
