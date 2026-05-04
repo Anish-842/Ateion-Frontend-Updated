@@ -8,7 +8,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useNavigate, Link } from "react-router";
+import { useNavigate, Link } from "react-router-dom";
 import svgPaths from "../../imports/svg-paths";
 import logo from "../../assets/logo.png";
 

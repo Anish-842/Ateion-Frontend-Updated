@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "../imports/Homepage";
 import GCOPage from "../imports/GCOPage";
 import ContactPage from "../imports/ContactPage";

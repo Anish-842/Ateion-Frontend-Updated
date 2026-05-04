@@ -5,7 +5,7 @@ import { RefObject, useCallback, useEffect, useRef, useState } from "react"
  * Throttled to ~60fps using requestAnimationFrame to prevent performance issues.
  */
 export const useMouseVector = (
-  containerRef?: RefObject<HTMLElement | SVGElement>
+  containerRef?: RefObject<Element | null>
 ) => {
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [vector, setVector] = useState({ dx: 0, dy: 0 })

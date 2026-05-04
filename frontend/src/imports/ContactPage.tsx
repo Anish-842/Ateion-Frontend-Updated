@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import SharedNavbar from '../app/components/SharedNavbar';
 import SharedFooter from '../app/components/SharedFooter';
 import './contact-styles.css';
@@ -25,7 +25,7 @@ export default function ContactPage() {
   const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const validateForm = () => {
-    const e = { firstName: '', lastName: '', email: '', message: '' };
+    const e = { firstName: '', lastName: '', email: '', message: '', agreed: '' };
     if (!formData.firstName.trim()) e.firstName = 'First name is required';
     else if (formData.firstName.trim().length < 2) e.firstName = 'Minimum 2 characters';
     else if (!/^[a-zA-Z\s'-]+$/.test(formData.firstName)) e.firstName = 'Letters only';
