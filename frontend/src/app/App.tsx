@@ -106,9 +106,10 @@ function AnimatedRoutes() {
     );
 }
 
-export default function App() {
+function AppContent() {
     const [showLogin, setShowLogin] = useState(false);
     const [loginTab, setLoginTab] = useState<"signin" | "signup">("signin");
+    const location = useLocation();
 
     useEffect(() => {
         const ac = new AbortController();
@@ -118,7 +119,6 @@ export default function App() {
     }, []);
 
     function ChatBotWrapper() {
-        const location = useLocation();
         const hiddenPaths = ["/admin", "/teacher", "/reset-password"];
         const shouldHide = hiddenPaths.some((p) => location.pathname.startsWith(p)) || showLogin;
         if (shouldHide) return null;
@@ -126,29 +126,37 @@ export default function App() {
         return <AIChatBot greeting="Hello! 👋" />;
     }
 
+    const shouldShowSharedNavbar = location.pathname === "/";
+
+    return (
+        <Suspense fallback={<LoadingSpinner />}>
+            {shouldShowSharedNavbar && <SharedNavbar />}
+            <AdminAuthProvider>
+                <ToastProvider>
+                    <AnimatedRoutes />
+                    <Toaster richColors closeButton position="bottom-right" />
+                    <GuidedTutorial />
+                </ToastProvider>
+            </AdminAuthProvider>
+            <ChatBotWrapper />
+            {showLogin && (
+                <LoginPage
+                    initialTab={loginTab}
+                    closeLogin={() => {
+                        setShowLogin(false);
+                        window.dispatchEvent(new CustomEvent("close-login"));
+                    }}
+                />
+            )}
+        </Suspense>
+    );
+}
+
+export default function App() {
     return (
         <ThemeProvider>
             <BrowserRouter>
-                <Suspense fallback={<LoadingSpinner />}>
-                <SharedNavbar />
-                    <AdminAuthProvider>
-                        <ToastProvider>
-                            <AnimatedRoutes />
-                            <Toaster richColors closeButton position="bottom-right" />
-                            <GuidedTutorial />
-                        </ToastProvider>
-                    </AdminAuthProvider>
-                    <ChatBotWrapper />
-                    {showLogin && (
-                        <LoginPage
-                            initialTab={loginTab}
-                            closeLogin={() => {
-                                setShowLogin(false);
-                                window.dispatchEvent(new CustomEvent("close-login"));
-                            }}
-                        />
-                    )}
-                </Suspense>
+                <AppContent />
             </BrowserRouter>
         </ThemeProvider>
     );
